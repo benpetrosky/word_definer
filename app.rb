@@ -22,6 +22,11 @@ get("/words") do
   erb(:words)
 end
 
+get('/definitions')do
+@word = Word.all()
+  erb(:definitions)
+end
+
 post('/definitions') do
   definition = params.fetch('definition')
   Definition.new(definition).save()
@@ -58,7 +63,6 @@ end
 
 post('/definitions') do
   input = params.fetch('definition')
-
   @definition = Definition.new(input)
   @definition.save()
   @word = Word.find(params.fetch('word_id').to_i())

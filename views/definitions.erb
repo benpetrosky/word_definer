@@ -1,12 +1,1 @@
 <h1>Here are all the definitions for this Word</h1>
-
-<ul>
-  <% @word.definitions().each() |definition| %>
-  <li><a href="/definitions/<%= definition.id() %>"<%= word.definition() %></a></li>
-</ul>
-
-<h1><%= @word %></h1>
-<h1><%= @word.define() %></h1>
-
-<a href="/words/<%= @word.id%>/definition/new">Add New Definition to the Word</a>
-<a href="/">Home</a>
