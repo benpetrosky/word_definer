@@ -11,6 +11,5 @@ post('/words') do
   input = params.fetch('word')
   word = Word.new(input)
   word.save()
-  
   erb(:success)
 end
