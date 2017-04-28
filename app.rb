@@ -13,3 +13,8 @@ post('/words') do
   word.save()
   erb(:success)
 end
+
+get('/index/:id') do
+  @word = Word.find(params.fetch("id"))
+  erb(:definition)
+end
