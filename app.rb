@@ -67,5 +67,5 @@ post('/definitions') do
   @definition.save()
   @word = Word.find(params.fetch('word_id').to_i())
   @word.add_definition(@definition)
-  erb(:success)
+  erb(:definition_success)
 end
