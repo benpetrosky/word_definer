@@ -12,9 +12,21 @@ get("/words/new") do
   erb(:words_form)
 end
 
+get("/word_definition_form/new") do
+  @word = Word.all()
+  erb(:word_definition_form)
+end
+
 get("/words") do
   @words = Word.all()
   erb(:words)
+end
+
+post('/definitions') do
+  definition = params.fetch('definition')
+  Definition.new(definition).save()
+  @definitions = Definition.all()
+  erb(:definition_success)
 end
 
 post('/words') do
