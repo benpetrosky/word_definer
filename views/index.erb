@@ -1,0 +1,23 @@
+<h1>Lets Learn Some Words</h1>
+
+<p>
+  Here are all of your words
+</p>
+
+<ul>
+  <% @words.each() do |word| %>
+  <li><%= word.something() %></li>
+  <% end %>
+</ul>
+
+<p>
+  Fill out a new word:
+</p>
+
+<form  action="/words" method="post">
+  <label for="word">Fill in a word</label>
+  <input type="text" name="word">
+
+  <button type="submit">Add the Word</button>
+
+</form>

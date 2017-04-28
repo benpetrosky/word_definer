@@ -5,8 +5,7 @@ class Word
   define_method(:initialize) do |something|
   @something = something
 
-
-end
+  end
   define_method(:something) do
     @something
   end
