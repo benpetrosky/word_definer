@@ -1,31 +1,55 @@
 require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**/*.rb')
-require('./lib/word_definer')
-require('./lib/define')
+require('./lib/word')
+require('./lib/definition')
 
 get('/') do
-  @words = Word.all()
+@words = Word.all()
   erb(:index)
 end
+get("/words/new") do
+  erb(:words_form)
+end
+
 get("/words") do
   @words = Word.all()
+  erb(:words)
+end
+
+post('/words') do
+  word = params.fetch('word')
+  Word.new(word).save()
+  @words = Word.all()
+  erb(:success)
+end
+
+get('/definitions/:id') do
+  @definition = Definition.find(params.fetch('id').to_i)
   erb(:definitions)
 end
+
+get('/words/:id') do
+  @word = Word.find(params.fetch('id').to_i())
+  erb(:word)
+end
+
+get('/words/:id/definitions/new') do
+    @word = Word.find(params.fetch('id').to_i())
+    erb(:word_definition_form)
+end
+
 
 get('/words/new')do
   erb(:words_form)
 end
 
-post('/words') do
-  input = params.fetch('word')
-  input_definition = params.fetch('define')
-  word = Word.new(input, input_definition)
-  word.save()
-  erb(:success)
-end
+post('/definitions') do
+  input = params.fetch('definition')
 
-get('/words/:id') do
-  @word = Word.find(params.fetch("id"))
-  erb(:words)
+  @definition = Definition.new(input)
+  @definition.save()
+  @word = Word.find(params.fetch('word_id').to_i())
+  @word.add_definition(@definition)
+  erb(:success)
 end

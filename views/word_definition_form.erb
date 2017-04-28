@@ -1,0 +1,10 @@
+<h1>Add a definition to <%= @word%></h1>
+
+<form action="/definitions" method="post">
+  <input id='word_id' type="hidden" name="word_id" value="<%= @word.id()%>">
+  <label for="definition"></label>
+  <input type="text" name="definition" value="">
+
+  <button type="submit">Add definition to Word</button>
+
+</form>
