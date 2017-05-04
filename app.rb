@@ -20,24 +20,23 @@ post('/words') do
   erb(:success)
 end
 get('/words') do
-@words = Word.all()  #this is the page you got to when going through the programdfadf
+@words = Word.all()
   erb(:words)
 end
 
 get("/word/:id") do
-  @words = Word.all()
+  @word = Word.all()
   word_id = params.fetch('id').to_i()
   @word = Word.find(word_id)
   @definitions = @word.definitions()
-
-
   erb(:word)
 
 end
 
 
-get("/word_definition_form/new") do
+get("/word_definition_form/:id") do
   @word = Word.all()
+#this is where you are in the routing, double check id links in a tags
   erb(:word_definition_form)
 end
 post('/definitions') do
