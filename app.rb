@@ -8,19 +8,40 @@ get('/') do
 @words = Word.all()
   erb(:index)
 end
+
 get("/words/new") do
   erb(:words_form)
 end
 
-get("/word_definition_form/new") do
-  @word = Word.all()
-  erb(:word_definition_form)
+post('/words') do
+  word = params.fetch('word')
+  Word.new(word).save()
+  @words = Word.all()
+  erb(:success)
 end
 
 get("/words") do
   @words = Word.all()
   erb(:words)
 end
+
+get('/word/') do
+  #this is the page you got to when going through the programdfadf
+  erb(:word)
+end
+
+get("/word_definition_form/new") do
+  @word = Word.all()
+  erb(:word_definition_form)
+end
+post('/definitions') do
+  definition = params.fetch('definition')
+  Definition.new(definition).save()
+  @definitions = Definition.all()
+  erb(:definitions)
+end
+
+
 
 get('/definitions')do
 @word = Word.all()
@@ -34,12 +55,6 @@ post('/definitions') do
   erb(:definition_success)
 end
 
-post('/words') do
-  word = params.fetch('word')
-  Word.new(word).save()
-  @words = Word.all()
-  erb(:success)
-end
 
 get('/definitions/:id') do
   @definition = Definition.find(params.fetch('id').to_i())

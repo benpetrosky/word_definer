@@ -1,13 +1,9 @@
 <h1>Word Bank</h1>
 
+<h2>Click on a word to view and add definitions</h2>
+
 <ul>
   <% @words.each() do |word| %>
-  <li><a href="/words/<% word.id()%>"<%= word.word() %></a></li>
+  <li><a href="/word/<% word.id()%>"><%= word.word() %></a></li>
   <% end %>
 </ul>
-
-<a href="/definitions"> See list of definitions</a>
-
-<a href="/word_definition_form/new">Add a new Definition</a>
-
-<p><a href="/" >Back to Home</a></p>

@@ -1,8 +1,8 @@
 <h1>Here are all the definitions for this Word</h1>
 
 <ul>
-  <% @words.each() do |word| %>
-  <li><a href="/definitions/<%= definition.id() %>"<%= definition.definition()%></a></li>
+  <% @definitions.each() do |definition| %>
+  <li><%= definition.definition() %></li>
 </ul>
 
 <p><a href="/" >Back to Home</a></p>
