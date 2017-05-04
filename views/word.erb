@@ -1,12 +1,2 @@
 
-<p>
-  this is the right page from here we need to display correct word on the page
-  and definitions connected to the word.
-
-  still need to figure out how to connect definitions and words.   .find method is probably needed.
-</p>
-<ul>
-  <% @words.each() do |word| %>
-  <li><a href="/word/<% word.id()%>"><%= word.word() %></a></li>
-  <% end %>
-</ul>
+<h1><%= @word.word() %></h1>

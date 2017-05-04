@@ -15,20 +15,26 @@ end
 
 post('/words') do
   word = params.fetch('word')
-  Word.new(word).save()
-  @words = Word.all()
+  @word = Word.new(word)
+  @word.save()
   erb(:success)
 end
-
-get("/words") do
-  @words = Word.all()
+get('/words') do
+@words = Word.all()  #this is the page you got to when going through the programdfadf
   erb(:words)
 end
 
-get('/word/') do
-  #this is the page you got to when going through the programdfadf
+get("/word/:id") do
+  @words = Word.all()
+  word_id = params.fetch('id').to_i()
+  @word = Word.find(word_id)
+  @definitions = @word.definitions()
+
+
   erb(:word)
+
 end
+
 
 get("/word_definition_form/new") do
   @word = Word.all()
