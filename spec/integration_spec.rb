@@ -15,6 +15,11 @@ describe('word', {:type => :feature}) do
     click_on('Add the Word')
     click_on('Back Word list')
     expect(page).to have_content("dog")
-
+  end
+  it('processes definitions properly') do
+    visit('/words/')
+    fill_in('definition', :with => 'enemy of felines')
+    click_on('Add definition to Word')
+    expect(page).to have_content('enemy of felines')
   end
 end

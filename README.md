@@ -18,7 +18,7 @@ go to the local host provided in the browser of your choice
 
 ## Known Bugs
 
-_Issue connecting word to their definitions. Not yet deployed to Heroku_
+_There are no known bugs._
 
 ## Support and contact details
 
