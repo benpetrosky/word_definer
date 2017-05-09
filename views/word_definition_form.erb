@@ -1,6 +1,6 @@
-<h1>Add a definition to <%= @word %></h1>
+<h1>Add a definition to <%= @word.word() %></h1>
 
-<form action="/definitions/>" method="post">
+<form action="/definitions" method="post">
 
   <label for="definition"></label>
   <input type="text" name="definition" value="">
