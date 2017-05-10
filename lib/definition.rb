@@ -22,13 +22,13 @@ class Definition
   define_method(:id) do
     @id
   end
-  define_singleton_method(:find) do |id|
-   found_definition = nil
-   @@definitions.each() do |definition|
-     if definition.id().eql?(id)
-       found_definition = definition
-     end
-   end
-   found_definition
- end
+ #  define_singleton_method(:find) do |id|
+ #   found_definition = nil
+ #   @@definitions.each() do |definition|
+ #     if definition.id().eql?(id)
+ #       found_definition = definition
+ #     end
+ #   end
+ #   found_definition
+ # end
 end
